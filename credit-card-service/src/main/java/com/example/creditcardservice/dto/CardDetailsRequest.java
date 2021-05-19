@@ -1,4 +1,4 @@
-package com.mtit.accountservice.dto;
+package com.example.creditcardservice.dto;
 
 public class CardDetailsRequest {
 

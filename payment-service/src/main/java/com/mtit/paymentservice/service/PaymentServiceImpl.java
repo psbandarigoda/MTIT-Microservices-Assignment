@@ -25,7 +25,7 @@ public class PaymentServiceImpl {
         cardDetailsRequest.setCardNumber(paymentRequest.getCardNumber());
         cardDetailsRequest.setExpireDate(paymentRequest.getExpireDate());
         cardDetailsRequest.setCvv(paymentRequest.getCvv());
-        ResponseEntity<CardDetailsResponse> cardDetailsResponse = restTemplate.postForEntity("http://localhost:8880/users/card", cardDetailsRequest, CardDetailsResponse.class);
+        ResponseEntity<CardDetailsResponse> cardDetailsResponse = restTemplate.postForEntity("http://localhost:8882/card/add", cardDetailsRequest, CardDetailsResponse.class);
 
 
         var paymentResponse = new PaymentResponse();

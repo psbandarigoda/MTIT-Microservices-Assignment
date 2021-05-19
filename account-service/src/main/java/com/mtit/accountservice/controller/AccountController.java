@@ -1,7 +1,5 @@
 package com.mtit.accountservice.controller;
 
-import com.mtit.accountservice.dto.CardDetailsRequest;
-import com.mtit.accountservice.dto.CardDetailsResponse;
 import com.mtit.accountservice.dto.UserRequest;
 import com.mtit.accountservice.dto.UserResponse;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +16,7 @@ public class AccountController {
 
         var userResponse = new UserResponse();
         userResponse.setUserId(UUID.randomUUID().toString());
-        userResponse.setMessage("User Creation is successful");
+        userResponse.setMessage("Successfully Created User");
         userResponse.setStatus(200);
         return userResponse;
     }
@@ -29,20 +27,9 @@ public class AccountController {
 
         var userResponse = new UserResponse();
         userResponse.setUserId(UUID.randomUUID().toString());
-        userResponse.setMessage("User Creation is successful");
+        userResponse.setMessage("Successfully View All Data");
         userResponse.setStatus(200);
         return userResponse;
-    }
-
-    @PostMapping(value = "/card", consumes = "application/json", produces = "application/json")
-    public @ResponseBody
-    CardDetailsResponse createUserCard(@RequestBody CardDetailsRequest cardDetailsRequest) {
-
-        var cardDetailsResponse = new CardDetailsResponse();
-        cardDetailsResponse.setPaymentOptionId(UUID.randomUUID().toString());
-        cardDetailsResponse.setMessage("User Card Details Added successful");
-        cardDetailsResponse.setStatus(200);
-        return cardDetailsResponse;
     }
 
 }

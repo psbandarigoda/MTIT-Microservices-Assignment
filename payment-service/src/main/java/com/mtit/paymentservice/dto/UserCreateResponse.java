@@ -1,10 +1,16 @@
-package com.mtit.accountservice.dto;
+package com.mtit.paymentservice.dto;
 
-public class CardDetailsResponse {
+public class UserCreateResponse {
 
+    private String userId;
     private String message;
-    private String paymentOptionId;
     private int status;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) { this.userId = userId; }
 
     public String getMessage() {
         return message;
@@ -18,7 +24,4 @@ public class CardDetailsResponse {
 
     public void setStatus(int status) { this.status = status; }
 
-    public String getPaymentOptionId() { return paymentOptionId; }
-
-    public void setPaymentOptionId(String paymentOptionId) { this.paymentOptionId = paymentOptionId; }
 }
