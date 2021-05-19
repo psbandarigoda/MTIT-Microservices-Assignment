@@ -19,6 +19,15 @@ public class PaymentServiceImpl {
 
     public PaymentResponse createPayment(PaymentRequest paymentRequest) {
 
+        var userCreateRequest = new UserCreateRequest();
+        userCreateRequest.setFirstName(paymentRequest.getFirstName());
+        userCreateRequest.setLastName(paymentRequest.getFirstName());
+        userCreateRequest.setEmail(paymentRequest.getEmail());
+        userCreateRequest.setAddress(paymentRequest.getAddress());
+        userCreateRequest.setMobile(paymentRequest.getMobile());
+        userCreateRequest.setPassword(paymentRequest.getPassword());
+        ResponseEntity<UserCreateResponse> userCreateResponse = restTemplate.postForEntity("http://localhost:8880/users/create", userCreateRequest, UserCreateResponse.class);
+
         var cardDetailsRequest = new CardDetailsRequest();
         cardDetailsRequest.setUser(paymentRequest.getBuyer());
         cardDetailsRequest.setCardType(paymentRequest.getCardType());
@@ -30,6 +39,7 @@ public class PaymentServiceImpl {
 
         var paymentResponse = new PaymentResponse();
         paymentResponse.setPaymentId(UUID.randomUUID().toString());
+        paymentResponse.setUserId(userCreateResponse.getBody().getUserId());
         paymentResponse.setPaymentOptionId(cardDetailsResponse.getBody().getPaymentOptionId());
         paymentResponse.setMessage("Paid Successfully");
         paymentResponse.setStatus(200);

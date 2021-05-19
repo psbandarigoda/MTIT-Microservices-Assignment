@@ -3,6 +3,7 @@ package com.mtit.paymentservice.dto;
 public class PaymentResponse {
 
     private String paymentId;
+    private String userId;
     private String paymentOptionId;
     private String message;
     private int status;
@@ -29,4 +30,11 @@ public class PaymentResponse {
 
     public void setStatus(int status) { this.status = status; }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 }
