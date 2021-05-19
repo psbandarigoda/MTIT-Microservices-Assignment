@@ -28,3 +28,6 @@ Make sure you do not have any server running on port 8882, that is where Tomcat 
 
 Please access the http://localhost:8882/card/xxxxx for running manual tests.
 You can use the Postman collection, available in postman folder.
+
+## Service Run On Web Browser
+> http://localhost:8881/swagger-ui.html
